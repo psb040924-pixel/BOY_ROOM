@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>My Room</title>
+<meta property="og:title" content="My Room">
+<meta property="og:image" content="image.jpg">
+<meta name="theme-color" content="#000000">
+<style>
+  :root { --bg:#000; color-scheme:dark; }
+  * { box-sizing:border-box; margin:0; -webkit-tap-highlight-color:transparent; }
+  html,body { height:100%; background:var(--bg); overflow:hidden; }
+  body { display:flex; align-items:center; justify-content:center; cursor:pointer; user-select:none; -webkit-user-select:none; }
+  img { display:block; width:100%; height:100%; max-width:100%; object-fit:contain; pointer-events:none; }
+</style>
+</head>
+<body>
+<img src="image.webp" alt="My room" onerror="this.onerror=null;this.src='image.jpg'">
+<audio id="bgm" src="song.mp3" preload="auto" loop playsinline></audio>
+<script>
+(function () {
+  var audio = document.getElementById('bgm');
+  // 화면 어디를 눌러도: 멈춰 있으면 재생, 재생 중이면 정지
+  document.addEventListener('click', function () {
+    if (audio.paused) { audio.play().catch(function () {}); }
+    else { audio.pause(); }
+  });
+})();
+</script>
+</body>
+</html>
